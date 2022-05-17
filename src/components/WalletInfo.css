@@ -1,0 +1,5 @@
+.wallet-info {
+	max-width: 40rem;
+	background-color: var(--color-cyan);
+	border-radius: var(--border-radius);
+}

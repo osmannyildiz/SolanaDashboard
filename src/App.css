@@ -1,0 +1,24 @@
+:root {
+	--color-bg: #16003b;
+	--color-cyan: #1b998b;
+	--color-magenta: #f73d93;
+	--border-radius: 1rem;
+}
+
+* {
+	font-family: "Courier New", Courier, monospace;
+}
+
+body {
+	background-color: var(--color-bg);
+}
+
+main {
+	text-align: center;
+}
+
+.main-header {
+	display: inline-block;
+	padding: 0.25rem 0.5rem;
+	background-color: var(--color-magenta);
+}
