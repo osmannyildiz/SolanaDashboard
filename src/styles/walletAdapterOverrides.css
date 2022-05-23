@@ -1,0 +1,6 @@
+.wallet-adapter-button-trigger {
+	display: inline-flex;
+	font-family: "Courier New", Courier, monospace;
+	font-size: 1.2rem;
+	text-transform: uppercase;
+}

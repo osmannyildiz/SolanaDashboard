@@ -3,6 +3,7 @@ lockfileVersion: 5.4
 specifiers:
   '@solana/wallet-adapter-base': ^0.9.5
   '@solana/wallet-adapter-react': ^0.15.5
+  '@solana/wallet-adapter-react-ui': ^0.9.7
   '@solana/wallet-adapter-wallets': ^0.16.1
   '@solana/web3.js': ^1.43.1
   '@types/react': ^18.0.0
@@ -15,6 +16,7 @@ specifiers:
 dependencies:
   '@solana/wallet-adapter-base': 0.9.5
   '@solana/wallet-adapter-react': 0.15.5_rhf4zdydwk5wvbkebofekk4e7y
+  '@solana/wallet-adapter-react-ui': 0.9.7_5xubfe4exic3m6xi2sa2xiqp74
   '@solana/wallet-adapter-wallets': 0.16.1_@solana+web3.js@1.43.1
   '@solana/web3.js': 1.43.1
   react: 18.1.0
@@ -620,6 +622,24 @@ packages:
     dependencies:
       '@solana/wallet-adapter-base': 0.9.5
       '@solana/web3.js': 1.43.1
+    transitivePeerDependencies:
+      - bufferutil
+      - encoding
+      - utf-8-validate
+    dev: false
+
+  /@solana/wallet-adapter-react-ui/0.9.7_5xubfe4exic3m6xi2sa2xiqp74:
+    resolution: {integrity: sha512-kcypuHK+wRkxdu4dXVS8O4tV1QkrC3OnFpx6/ejQTi0ZLZJF8AA/+j/MnLZoNJzzkHLZKLg2lEpEKVdJ4Xf+eg==}
+    peerDependencies:
+      '@solana/web3.js': ^1.36.0
+      react: ^17.0.0 || ^18.0.0
+      react-dom: ^17.0.0 || ^18.0.0
+    dependencies:
+      '@solana/wallet-adapter-base': 0.9.5
+      '@solana/wallet-adapter-react': 0.15.5_rhf4zdydwk5wvbkebofekk4e7y
+      '@solana/web3.js': 1.43.1
+      react: 18.1.0
+      react-dom: 18.1.0_react@18.1.0
     transitivePeerDependencies:
       - bufferutil
       - encoding
