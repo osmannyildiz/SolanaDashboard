@@ -1,16 +1,11 @@
 import { useWallet } from "@solana/wallet-adapter-react";
-import React, { useEffect } from "react";
+import React from "react";
 import ConnectWallet from "../ConnectWallet";
 import SendSol from "../SendSol";
 import WalletInfo from "../WalletInfo";
 
 function Dashboard() {
-	// const { connection } = useConnection();
 	const wallet = useWallet();
-
-	useEffect(() => {
-		console.log(wallet);
-	}, [wallet]);
 
 	return (
 		<React.Fragment>
