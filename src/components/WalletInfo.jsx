@@ -2,28 +2,10 @@ import {
 	WalletDisconnectButton,
 	WalletModalProvider,
 } from "@solana/wallet-adapter-react-ui";
-import { Connection, LAMPORTS_PER_SOL } from "@solana/web3.js";
-import { useContext, useEffect, useState } from "react";
-import { MySolanaContext } from "../contexts";
+import { LAMPORTS_PER_SOL } from "@solana/web3.js";
 import "./WalletInfo.css";
 
-function WalletInfo({ wallet }) {
-	const { endpoint } = useContext(MySolanaContext);
-	const [accountInfo, setAccountInfo] = useState(null);
-
-	useEffect(() => {
-		(async () => {
-			const connection = new Connection(endpoint);
-			let accountInfo = await connection.getAccountInfo(wallet.publicKey);
-			if (accountInfo === null) {
-				accountInfo = {
-					lamports: 0,
-				};
-			}
-			setAccountInfo(accountInfo);
-		})();
-	}, [endpoint]);
-
+function WalletInfo({ wallet, accountInfo, pullAccountInfo }) {
 	const lamportsToSols = (lamports) => lamports / LAMPORTS_PER_SOL;
 
 	return (
@@ -39,6 +21,9 @@ function WalletInfo({ wallet }) {
 				</section>
 			)}
 			<WalletModalProvider>
+				<button type="button" className="btn mr" onClick={pullAccountInfo}>
+					REFRESH
+				</button>
 				<WalletDisconnectButton />
 			</WalletModalProvider>
 		</div>

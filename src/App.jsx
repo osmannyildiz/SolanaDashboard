@@ -1,5 +1,8 @@
 import { WalletAdapterNetwork } from "@solana/wallet-adapter-base";
-import { WalletProvider } from "@solana/wallet-adapter-react";
+import {
+	ConnectionProvider,
+	WalletProvider,
+} from "@solana/wallet-adapter-react";
 import "@solana/wallet-adapter-react-ui/styles.css";
 import { PhantomWalletAdapter } from "@solana/wallet-adapter-wallets";
 import { clusterApiUrl } from "@solana/web3.js";
@@ -24,9 +27,11 @@ function App() {
 
 	return (
 		<MySolanaContext.Provider value={mySolanaContext}>
-			<WalletProvider wallets={walletAdapters} autoConnect>
-				<Index />
-			</WalletProvider>
+			<ConnectionProvider endpoint={endpoint}>
+				<WalletProvider wallets={walletAdapters} autoConnect>
+					<Index />
+				</WalletProvider>
+			</ConnectionProvider>
 		</MySolanaContext.Provider>
 	);
 }

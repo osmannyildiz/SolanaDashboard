@@ -2,6 +2,8 @@
 	--color-bg: #16003b;
 	--color-cyan: #1b998b;
 	--color-magenta: #f73d93;
+	--color-btn: #512da8;
+	--color-btn-hover: #1a1f2e;
 	--border-radius: 1rem;
 }
 
@@ -22,4 +24,26 @@ main {
 	padding: 1rem;
 	color: black;
 	border-radius: var(--border-radius);
+}
+
+.btn {
+	height: 3rem;
+	padding: 0 1.5rem;
+	color: white;
+	background-color: var(--color-btn);
+	border: none;
+	border-radius: 4px;
+	font-size: 1.2rem;
+	font-weight: 600;
+	line-height: 3rem;
+	vertical-align: top;
+	cursor: pointer;
+}
+
+.btn:hover {
+	background-color: var(--color-btn-hover);
+}
+
+.mr {
+	margin-right: 1rem;
 }
