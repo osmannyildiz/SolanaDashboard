@@ -9,8 +9,8 @@ function Dashboard() {
 	const wallet = useWallet();
 
 	useEffect(() => {
-		console.log(wallet.publicKey);
-	}, [wallet.publicKey]);
+		console.log(wallet);
+	}, [wallet]);
 
 	return (
 		<React.Fragment>

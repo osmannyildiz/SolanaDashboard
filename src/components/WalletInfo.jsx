@@ -4,12 +4,12 @@ import {
 } from "@solana/wallet-adapter-react-ui";
 import "./WalletInfo.css";
 
-function WalletInfo() {
+function WalletInfo({ wallet }) {
 	return (
 		<div className="wallet-info dashboard-block">
 			<section>
 				<h2>WALLET ADDRESS</h2>
-				<span>H7Rpt3kqnBZJ3pdtw6MrQYoHukSi2cM8oQGEyJHvkZwR</span>
+				<span>{wallet.publicKey.toBase58()}</span>
 			</section>
 			<section>
 				<h2>WALLET BALANCE</h2>
