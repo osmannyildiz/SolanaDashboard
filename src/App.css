@@ -10,6 +10,7 @@
 }
 
 body {
+	color: white;
 	background-color: var(--color-bg);
 }
 
@@ -17,8 +18,8 @@ main {
 	text-align: center;
 }
 
-.main-header {
-	display: inline-block;
-	padding: 0.25rem 0.5rem;
-	background-color: var(--color-magenta);
+.dashboard-block {
+	padding: 1rem;
+	color: black;
+	border-radius: var(--border-radius);
 }

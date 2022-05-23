@@ -1,5 +1,21 @@
 .wallet-info {
 	max-width: 40rem;
-	background-color: var(--color-cyan);
-	border-radius: var(--border-radius);
+	margin: auto;
+	background-color: var(--color-magenta);
+}
+
+.wallet-info > section {
+	margin-bottom: 1rem;
+}
+.wallet-info > section:last-child {
+	margin-bottom: 0;
+}
+
+.wallet-info > section > h2 {
+	margin: 0;
+}
+
+.wallet-info > section > span {
+	font-size: 2rem;
+	overflow-wrap: break-word;
 }

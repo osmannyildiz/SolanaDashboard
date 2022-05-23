@@ -1,0 +1,5 @@
+.send-sol {
+	max-width: 40rem;
+	margin: auto;
+	background-color: var(--color-cyan);
+}
