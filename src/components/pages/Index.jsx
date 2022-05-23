@@ -1,7 +1,7 @@
 import { useWallet } from "@solana/wallet-adapter-react";
 import React from "react";
 import ConnectWallet from "../ConnectWallet";
-import SendSol from "../SendSol";
+import SendSols from "../SendSols";
 import WalletInfo from "../WalletInfo";
 
 function Index() {
@@ -13,7 +13,7 @@ function Index() {
 				<h1>SOLANA DASHBOARD</h1>
 				{!wallet.connected && <ConnectWallet />}
 				{wallet.connected && <WalletInfo wallet={wallet} />}
-				{wallet.connected && <SendSol />}
+				{wallet.connected && <SendSols />}
 			</main>
 		</React.Fragment>
 	);
