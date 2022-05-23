@@ -4,7 +4,7 @@ import ConnectWallet from "../ConnectWallet";
 import SendSol from "../SendSol";
 import WalletInfo from "../WalletInfo";
 
-function Dashboard() {
+function Index() {
 	const wallet = useWallet();
 
 	return (
@@ -19,4 +19,4 @@ function Dashboard() {
 	);
 }
 
-export default Dashboard;
+export default Index;

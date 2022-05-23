@@ -5,7 +5,7 @@ import { PhantomWalletAdapter } from "@solana/wallet-adapter-wallets";
 import { clusterApiUrl } from "@solana/web3.js";
 import { useMemo } from "react";
 import "./App.css";
-import Dashboard from "./components/pages/Dashboard";
+import Index from "./components/pages/Index";
 import { MySolanaContext } from "./contexts";
 import "./styles/walletAdapterOverrides.css";
 
@@ -25,7 +25,7 @@ function App() {
 	return (
 		<MySolanaContext.Provider value={mySolanaContext}>
 			<WalletProvider wallets={walletAdapters} autoConnect>
-				<Dashboard />
+				<Index />
 			</WalletProvider>
 		</MySolanaContext.Provider>
 	);
