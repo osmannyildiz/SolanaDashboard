@@ -2,6 +2,7 @@ import { useState } from "react";
 import "./App.css";
 import SendSol from "./components/SendSol";
 import WalletInfo from "./components/WalletInfo";
+// import {PhantomWalletAdapter} from "@solana/wallet-adapter-wallets"
 
 function App() {
 	const [wallet, setWallet] = useState(null);
