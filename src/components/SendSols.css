@@ -1,5 +1,26 @@
-.send-sol {
-	max-width: 40rem;
-	margin: auto;
+.send-sols {
 	background-color: var(--color-cyan);
+}
+
+.send-sols .form-table {
+	margin-left: auto;
+	margin-right: auto;
+}
+.send-sols .form-row > td {
+	padding-bottom: 0.5rem;
+}
+.send-sols .form-row:last-child > td {
+	padding-bottom: 0;
+}
+.send-sols .form-row__label {
+	text-align: right;
+}
+.send-sols .form-row__label > label {
+	padding-right: 0.25rem;
+}
+.send-sols .form-row__input {
+	width: 250px;
+}
+.send-sols .form-row__input > input {
+	width: 100%;
 }

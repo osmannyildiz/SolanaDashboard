@@ -15,6 +15,21 @@ function SendSols({ wallet, pullAccountInfo }) {
 
 	const solsToLamports = (sols) => sols * LAMPORTS_PER_SOL;
 
+	const [lastTimeout, setLastTimeout] = useState(null);
+	const showMsg = (msg, disappearInSecs = 0) => {
+		setMsg(msg);
+
+		if (disappearInSecs > 0) {
+			if (lastTimeout !== null) {
+				clearTimeout(lastTimeout);
+			}
+			const timeout = setTimeout(() => {
+				setMsg("");
+			}, 1000 * disappearInSecs);
+			setLastTimeout(timeout);
+		}
+	};
+
 	const formSubmitHandler = async (event) => {
 		event.preventDefault();
 
@@ -34,7 +49,7 @@ function SendSols({ wallet, pullAccountInfo }) {
 				formData.amount >= 0.000_000_001
 			)
 		) {
-			setMsg("ERROR: FORM DATA IS INCORRECT.");
+			showMsg("ERROR: FORM DATA IS INVALID.", 10);
 			return;
 		}
 
@@ -47,62 +62,71 @@ function SendSols({ wallet, pullAccountInfo }) {
 					lamports: solsToLamports(formData.amount),
 				})
 			);
-			setMsg("ASKING FOR APPROVAL...");
+			showMsg("ASKING FOR APPROVAL...");
 			const signature = await wallet.sendTransaction(transaction, connection);
-			setMsg("TRANSACTION IN PROGRESS...");
+			showMsg("TRANSACTION IN PROGRESS...");
 
 			await connection.confirmTransaction(signature, "processed");
-			setMsg("TRANSACTION IN PROGRESS... (PROCESSED)");
+			showMsg("TRANSACTION IN PROGRESS... (PROCESSED)");
 
 			await connection.confirmTransaction(signature, "confirmed");
-			setMsg("TRANSACTION IN PROGRESS... (CONFIRMED)");
+			showMsg("TRANSACTION IN PROGRESS... (CONFIRMED)");
 
 			await connection.confirmTransaction(signature, "finalized");
-			setMsg("TRANSACTION SUCCESSFUL.");
+			showMsg("TRANSACTION SUCCESSFUL.", 60);
 		} catch (err) {
 			console.error(err);
-			setMsg("TRANSACTION FAILED!");
+			showMsg("TRANSACTION FAILED!", 60);
 		}
 
 		// Refresh account info
 		pullAccountInfo();
-
-		// Clear message after 30 seconds
-		setTimeout(() => {
-			setMsg("");
-		}, 1000 * 30);
 	};
 
 	return (
-		<div className="send-sol dashboard-block">
+		<div className="dashboard-block send-sols">
 			<section>
-				<h2>SEND SOL</h2>
+				<h2 className="mb">SEND SOLS</h2>
 				<form onSubmit={formSubmitHandler}>
-					<div>
-						TO:{" "}
-						<input
-							type="text"
-							name="to"
-							placeholder="RECEIVER WALLET ADDRESS"
-						/>
-					</div>
-					<div>
-						AMOUNT:{" "}
-						<input
-							type="number"
-							name="amount"
-							min="0"
-							step="any"
-							placeholder="SOLS TO SEND"
-						/>
-					</div>
+					<table className="form-table mb">
+						<tbody>
+							<tr className="form-row">
+								<td className="form-row__label">
+									<label htmlFor="send-sols__to">TO:</label>
+								</td>
+								<td className="form-row__input">
+									<input
+										type="text"
+										name="to"
+										id="send-sols__to"
+										placeholder="RECEIVER WALLET ADDRESS"
+									/>
+								</td>
+							</tr>
+							<tr className="form-row">
+								<td className="form-row__label">
+									<label htmlFor="send-sols__amount">AMOUNT:</label>
+								</td>
+								<td className="form-row__input">
+									<input
+										type="number"
+										name="amount"
+										id="send-sols__amount"
+										min="0"
+										step="any"
+										placeholder="SOLS TO SEND"
+									/>
+								</td>
+							</tr>
+						</tbody>
+					</table>
 					<div>
 						<button type="submit" className="btn">
 							SEND
 						</button>
 					</div>
 				</form>
-				{msg && <div className="result">{msg}</div>}
+				{msg && <div className="result mt">{msg}</div>}
 			</section>
 		</div>
 	);

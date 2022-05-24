@@ -1,21 +1,24 @@
 .wallet-info {
-	max-width: 40rem;
-	margin: auto;
 	background-color: var(--color-magenta);
 }
 
-.wallet-info > section {
-	margin-bottom: 1rem;
-}
-.wallet-info > section:last-child {
-	margin-bottom: 0;
-}
-
 .wallet-info > section > h2 {
-	margin: 0;
+	margin-bottom: 0;
 }
 
 .wallet-info > section > span {
 	font-size: 2rem;
 	overflow-wrap: break-word;
+}
+
+.wallet-info button:not(:last-child) {
+	margin-bottom: 1rem;
+	margin-right: 0;
+}
+
+@media (min-width: 800px) {
+	.wallet-info button:not(:last-child) {
+		margin-bottom: 0;
+		margin-right: 1rem;
+	}
 }

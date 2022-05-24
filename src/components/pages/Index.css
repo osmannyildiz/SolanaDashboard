@@ -1,0 +1,27 @@
+.main-header {
+	font-size: 3rem;
+}
+
+.dashboard-block {
+	margin-bottom: 2rem;
+}
+
+.dashboard-block .result {
+	display: inline-block;
+	padding: 0.5rem 1rem;
+	background-color: var(--color-yellow);
+	border-radius: var(--border-radius-sm);
+}
+
+@media (min-width: 800px) {
+	.dashboard {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 2rem;
+		max-width: 1200px;
+		margin: 0 auto;
+	}
+	.dashboard-block {
+		margin-bottom: 0;
+	}
+}
